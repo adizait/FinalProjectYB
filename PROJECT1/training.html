@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html class="background" >
+<head>
+    <meta charset="utf-8" />
+    <title>מעקב לאחר התוכנית</title>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+</head>
+ <!--הדף הראשוני הוא של לבחור תוכנית אימונים.
+אם המשתמש כבר בחר תוכנית, זה מעביר אותו לדף של מעקב אחרי התוכנית.
+אחרי שהמשתמש בוחר תוכנית, זה מעביר אותו לדף שמסביר על אותה התוכנית, ומראה את כל הדירוגים ואת אחוזי ההתאמה של התוכנית לאותו המשתמש (כמות האחוזים היא ככמות ההשטאגים התואמים).-->
+
+<body style="text-align:right ; height: 100%">
+
+    <!--מעקב לאחר האימונים-->
+
+    <h2>מעקב לאחר התוכנית</h2>
+    <table align="right" style="direction:rtl">
+        <tr>
+            <th>מספר ימים בתוכנית : </th>
+            <td>
+                <p id="demo"></p>
+
+                <script>
+                    // Set the date we're counting down to
+                    var distance = 3;
+                    var days = 3;
+                    var countDownDate = new Date().getDate();
+                    document.getElementById("demo").innerHTML = days + "d ";
+
+                    // Update the count down every 1 second
+                    var x = setInterval(function () {
+
+                        // Get today's date and time
+                        // Find the distance between now and the count down date
+                        distance = countDownDate - now;
+
+                        // Time calculations for days, hours, minutes and seconds
+
+                        days = distance;
+
+                        // Display the result in the element with id="demo"
+
+                        document.getElementById("demo").innerHTML = days + "d ";
+
+                        //If the count down is finished, write some text
+                        if (distance > 6) {
+                            clearInterval(x);
+                            document.getElementById("demo").innerHTML = "YOU FINISHED!!";
+                        }
+                    }, 86400000);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <th>כמה ימים נותרו : </th>
+            <td>
+                <p id="demo1"></p>
+
+                <script>
+                    // Set the date we're counting down to
+                    var distance1 = 3;
+                    var days1 = 3;
+                    document.getElementById("demo1").innerHTML = days1 + "d ";
+
+                    // Update the count down every 1 second
+                    var x1 = setInterval(function () {
+
+                        // Get today's date and time
+                        // Find the distance between now and the count down date
+                        distance1 = distance1 - 1;
+
+                        // Time calculations for days, hours, minutes and seconds
+
+                        days1 = distance1;
+
+                        // Display the result in the element with id="demo"
+
+                        document.getElementById("demo1").innerHTML = days1 + "d ";
+
+                        //If the count down is finished, write some text
+                        if (distance1 < 0) {
+                            clearInterval(x1);
+                            document.getElementById("demo1").innerHTML = "TIME'S UP!!";
+                        }
+                    }, 86400000);
+                </script>
+            </td>
+        </tr>
+
+    </table>
+
+    <button class="button-75" role="button">
+        <span class="text">
+            <p id="demo2"></p>
+
+            <script>
+                // Set the date we're counting down to
+                var distance = 200;
+                var minutes = Math.floor(distance / (60));
+                var seconds = Math.floor(distance % (60));
+                document.getElementById("demo2").innerHTML = minutes + "m " + seconds + "s ";
+
+                // Update the count down every 1 second
+                var x = setInterval(function () {
+
+                    // Get today's date and time
+                    // Find the distance between now and the count down date
+                    distance = distance - 1;
+
+                    // Time calculations for days, hours, minutes and seconds
+
+                    var minutes = Math.floor(distance / (60));
+                    var seconds = Math.floor(distance % (60));
+
+                    // Display the result in the element with id="demo"
+                    document.getElementById("demo2").innerHTML = minutes + "m " + seconds + "s ";
+
+                    // If the count down is finished, write some text
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("demo2").innerHTML = "TIME'S UP!!";
+                    }
+                }, 1000);
+
+            </script>
+        </span>
+    </button>
+
+</body>
+</html>
